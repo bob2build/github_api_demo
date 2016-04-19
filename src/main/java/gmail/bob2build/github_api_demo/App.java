@@ -17,7 +17,7 @@ public class App {
         String baseAddress = "https://api.github.com";
         WebClient client = WebClient.create(baseAddress);
         client.accept("application/vnd.github.v3+json");
-        GithubRestHelper helper = new GithubRestHelper(client, "/chef/chef");
+        GithubRestHelper helper = new GithubRestHelper(client, "/ruby/ruby");
 
         if (command.equals("branch")) {
             processBranchCommand(args, helper);

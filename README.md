@@ -4,7 +4,7 @@
 This project contains sample programs to demonstrate the API functionality of Github.com. It contains a single Main class App.java. It accepts the name of the command as a CLI argument. The following commands are supported
 
 #### branch
-Outputs all the branches of a repository (https://github.com/chef/chef) to stdout
+Outputs all the branches of a repository (https://github.com/ruby/ruby) to stdout
 
 ### Usage
 
