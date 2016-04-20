@@ -44,5 +44,29 @@ public class GithubRestHelperTest {
         List<String> branches = helper.readBranches();
         Assert.assertTrue(Arrays.asList("br1", "br2").equals(branches));
     }
+    
+    @Test
+    public void testReadTags() {
+        String repoPath = "/chef/chef";
+        final String tagsResponse =
+            "[{\"name\":\"tag1\", \"commit\": {\"sha\":\"rand1\", \"url\":\"rand2\"}},{\"name\":\"tag2\", \"commit\": {\"sha\":\"rand3\", \"url\":\"rand3\"}}]";
+
+        new Expectations() {
+            {
+                client.replacePath("repos/chef/chef/tags");
+                result = client;
+                client.get();
+                result = response;
+                response.getStatus();
+                result = 200;
+                response.getEntity();
+                result = new ByteArrayInputStream(tagsResponse.getBytes());
+            }
+        };
+
+        GithubRestHelper helper = new GithubRestHelper(client, repoPath);
+        List<String> branches = helper.readTags();
+        Assert.assertTrue(Arrays.asList("tag1", "tag2").equals(branches));
+    }
 
 }

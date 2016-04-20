@@ -19,11 +19,18 @@ mvn test
 ```
 git clone https://github.com/bob2build/github_api_demo
 cd github_api_demo
-mvn exec:java -Dexec.mainClass="gmail.bob2build.github_api_demo.App" -Dexec.args="branch"
+mvn exec:java -Dexec.mainClass="gmail.bob2build.github_api_demo.App" -Dexec.args="<<command>>"
 ```
+
+Supported Commands
+* branch
+* tag
+* branch_wo_travis
+* tag_wo_travis
 
 
 ###TODO
-* Add command for listing tags
-* Add command for listing branches which doesn't contain .travis.yml file
-* Add command for listing tags which doesn't contain .travis.yml file
+* Add option parser to parse arguments
+* Add support for HTTP mocking. JMockit which is used now, is too naive for mocking http requests
+
+
